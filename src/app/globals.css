@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c0b09;
+  --color-ink-raised: #161410;
+  --color-card: #1c1a16;
+  --color-line: #3d362c;
+  --color-gold: #e6b325;
+  --color-gold-deep: #c9961d;
+  --color-cream: #f7f1e6;
+  --color-cream-soft: #e4d9c8;
+  --color-muted: #c9bfb0;
+  --font-sans: var(--font-dm-sans), "Segoe UI", sans-serif;
+}
+
+:root {
+  --site-header-height: 4.25rem;
+}
+
+html {
+  color-scheme: dark;
+  background: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #1a1408;
+}
