@@ -65,9 +65,9 @@ if (siteConfig.address) {
 const groups = getPublicMenu(menuItems, menuCategories);
 const names = groups.flatMap((group) => group.items.map((item) => item.name));
 assert(names.includes("Link"), "Link menüde olmalı");
-assert(names.includes("Lavaş"), "Lavaş eksik");
+assert(!names.includes("Lavaş"), "Lavaş menüde olmamalı");
 assert(names.includes("Dürüm Döner"), "Dürüm Döner eksik");
-assert(names.includes("Kemalpaşa"), "Kemalpaşa eksik");
+assert(!names.includes("Kemalpaşa"), "Kemalpaşa menüde olmamalı");
 const doner = groups.find((group) => group.id === "doner");
 assert(doner?.layout === "feature", "döner düzeni 3 sütun tipi olmalı");
 assert(groups.find((group) => group.id === "icecekler")?.layout === "compact", "içecek düzeni kompakt olmalı");

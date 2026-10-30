@@ -8,13 +8,6 @@ type MenuSectionProps = {
 };
 
 export function MenuSection({ groups }: MenuSectionProps) {
-  const showPriceNotice = groups.some((group) =>
-    group.items.some((item) => !item.priceConfirmed),
-  );
-  const showSampleNotice = groups.some((group) =>
-    group.items.some((item) => item.imageIsSample),
-  );
-
   return (
     <section id="menu" className="scroll-mt-20" aria-labelledby="menu-baslik">
       <CategoryTabs
@@ -31,25 +24,6 @@ export function MenuSection({ groups }: MenuSectionProps) {
           >
             Menü
           </h2>
-          {showSampleNotice ? (
-            <p
-              role="note"
-              className="mt-3 rounded-2xl border border-line bg-ink-raised px-4 py-3 text-sm leading-relaxed text-cream-soft"
-            >
-              Üstteki döner görseli ve kart fotoğrafları tasarım denemesi için
-              kullanılan örnek görsellerdir. Saklı Döner’in gerçek ürün
-              fotoğrafları değildir.
-            </p>
-          ) : null}
-          {showPriceNotice ? (
-            <p
-              role="note"
-              className="mt-3 rounded-2xl border border-line bg-ink-raised px-4 py-3 text-sm leading-relaxed text-cream-soft"
-            >
-              Onaylanmamış ürünlerde fiyat gösterilmez. Güncel tutar için
-              telefon veya WhatsApp ile iletişime geçin.
-            </p>
-          ) : null}
         </header>
 
         {groups.length === 0 ? (
@@ -79,12 +53,12 @@ export function MenuSection({ groups }: MenuSectionProps) {
               <ul
                 className={
                   group.layout === "compact"
-                    ? "mt-4 grid grid-cols-1 gap-3 min-[540px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+                    ? "mt-4 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
                     : "mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3"
                 }
               >
                 {group.items.map((item) => (
-                  <li key={item.id}>
+                  <li key={item.id} className="min-w-0">
                     <ProductCard
                       item={item}
                       compact={group.layout === "compact"}

@@ -17,19 +17,12 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/82 to-ink/35 md:from-ink md:via-ink/40 md:to-transparent" />
       </div>
       <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-12 sm:py-16">
-        <Image
-          src="/images/logo.png"
-          alt=""
-          width={96}
-          height={96}
-          className="h-24 w-24 rounded-2xl object-cover ring-1 ring-gold/50"
-        />
         <div className="max-w-xl lg:max-w-2xl">
           <p className="text-sm font-semibold tracking-[0.16em] text-gold uppercase">
             {siteConfig.businessType}
           </p>
           <h1 className="mt-2 text-4xl font-semibold tracking-tight text-cream sm:text-5xl">
-            Lezzetini Keşfet
+            Lezzeti Tadında Saklı
           </h1>
           <p className="mt-3 text-lg leading-relaxed text-cream-soft">
             {siteConfig.slogan}. Tavuk döner menümüzü inceleyin. Siparişinizi

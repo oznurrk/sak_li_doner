@@ -24,11 +24,12 @@ export function Header() {
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
         <div className="flex min-w-0 items-center gap-2.5">
           <Image
-            src="/images/logo.png"
+            src="/images/logo2.png"
             alt="SAK-LI DÖNER tabela logosu"
-            width={44}
-            height={44}
-            className="h-11 w-11 shrink-0 rounded-full object-cover"
+            width={768}
+            height={768}
+            sizes="96px"
+            className="h-12 w-12 shrink-0"
             priority
           />
           <div className="min-w-0">

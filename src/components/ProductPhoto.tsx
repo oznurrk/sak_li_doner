@@ -20,13 +20,14 @@ export function ProductPhoto({ src, name, sample, compact }: ProductPhotoProps) 
     <div
       className={
         compact
-          ? "relative mb-3 aspect-square overflow-hidden rounded-xl bg-ink-raised"
-          : "relative mb-4 aspect-[4/3] overflow-hidden rounded-xl bg-ink-raised"
+          ? "relative mb-3 w-full overflow-hidden rounded-xl bg-ink"
+          : "relative mb-4 aspect-[1.5] overflow-hidden rounded-xl bg-ink-raised"
       }
+      style={compact ? { aspectRatio: "4 / 3" } : undefined}
     >
       {failed ? (
         <div className="flex h-full items-center justify-center px-3 text-center text-xs leading-snug text-cream-soft">
-          Örnek görsel yüklenemedi
+          Görsel yüklenemedi
         </div>
       ) : (
         <Image
@@ -35,18 +36,14 @@ export function ProductPhoto({ src, name, sample, compact }: ProductPhotoProps) 
           fill
           sizes={
             compact
-              ? "(min-width: 1280px) 180px, (min-width: 640px) 30vw, 50vw"
+              ? "(min-width: 1280px) 240px, (min-width: 768px) 30vw, 100vw"
               : "(min-width: 1280px) 360px, (min-width: 640px) 45vw, 100vw"
           }
-          className="object-cover"
+          className={compact ? "object-contain object-center" : "object-cover"}
+          style={compact ? { objectFit: "contain" } : undefined}
           onError={() => setFailed(true)}
         />
       )}
-      {sample ? (
-        <span className="absolute top-2 left-2 rounded-full bg-ink/85 px-2 py-0.5 text-[11px] font-semibold text-cream">
-          Örnek görsel
-        </span>
-      ) : null}
     </div>
   );
 }

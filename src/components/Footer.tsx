@@ -39,11 +39,12 @@ export function Footer() {
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src="/images/logo.png"
+              src="/images/logo2.png"
               alt=""
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-full object-cover"
+              width={768}
+              height={768}
+              sizes="96px"
+              className="h-12 w-12 shrink-0"
             />
             <div>
               <p className="text-base font-semibold tracking-wide text-gold">

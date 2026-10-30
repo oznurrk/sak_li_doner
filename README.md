@@ -37,14 +37,14 @@ npx tsx scripts/check-contact.ts
 | Bilgi | Durum | Ne yapmalısınız |
 | --- | --- | --- |
 | Ürün fiyatları | Onaylandı. Tutarı olan ürünlerde satış fiyatı görünür. | Yeni fiyat için `price` alanını güncelleyin. |
-| Kemalpaşa fiyatı | Hâlâ yok. Kartta tutar yerine iletişim cümlesi görünür. | Rakamı yazıp `needsConfirmation` değerini `false` yapın. |
+| Kemalpaşa tatlısı | Menüde yok. | Tekrar satılacaksa `menu.ts` içine ürün olarak ekleyin. |
 | "Link" adlı ürün | Menüde 20 TL ile duruyor. Ad hâlâ notlardaki “Link”. | Gerçek adı `name` alanından düzeltin. Yanlışsa `available` değerini `false` yapın. |
 | Kola ve Fanta | 330 ml kola ve 330 ml fanta, ikisi de 70 TL. | Hacim veya ad yanlışsa `name` alanını düzeltin. |
 | WhatsApp hattı | `0534 873 04 63` numarasından bağlantı üretiliyor. Bu hattın WhatsApp'ta açık olduğu doğrulanmadı. | Telefonda WhatsApp ile kendinize mesaj açıldığını deneyin. Farklı bir hat varsa `whatsappPhone` alanına yazın. |
 | Açık adres | Kemalpaşa Mah. Halit Molla Cd. No: 2B, Ferizli, Sakarya. | Değişirse `address` alanını güncelleyin. |
 | Çalışma saatleri | Pazartesi–Cumartesi 10:00–18:00. Pazar: Kapalı. | Değişirse `openingHours` ve `openingHoursSchema` alanlarını birlikte güncelleyin. |
 | Ürün fotoğrafları | Tasarım denemesi için örnek görseller var. Gerçek ürün fotoğrafı değildir. | Gerçek fotoğrafı `public/images/menu/` altına koyun, `image` yolunu değiştirin ve `imageIsSample` değerini `false` yapın. |
-| Logo | Verilen tabela fotoğrafı, 150×150 piksel. Küçük gösteriliyor. | Daha net bir dosyanız varsa `public/images/logo.png` ve `src/app/icon.png` dosyalarını birlikte değiştirin. |
+| Logo | Verilen tabela fotoğrafı, 150×150 piksel. Küçük gösteriliyor. | Daha net bir dosyanız varsa `public/images/logo2.png` ve `src/app/icon.png` dosyalarını birlikte değiştirin. |
 | Yayındaki adres | Henüz yok. | Yayınladıktan sonra kalıcı `https://` adresini `publicSiteUrl` alanına yazın. |
 
 `whatsappVerified` alanı yalnızca sizin kaydınızdır. `true` yapınca sitede ayrı bir rozet çıkmaz. Bağlantı, numara dolu olduğu sürece üretilir.
