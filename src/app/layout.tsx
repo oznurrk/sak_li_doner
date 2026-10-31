@@ -34,8 +34,8 @@ export const metadata: Metadata = {
           images: [
             {
               url: "/images/logo2.png",
-              width: 150,
-              height: 150,
+              width: 768,
+              height: 768,
               alt: "SAK-LI DÖNER tabela logosu",
             },
           ],

@@ -34,8 +34,7 @@ export type SiteConfig = {
   openingHoursSchema: string | null;
   /**
    * Yayındaki kalıcı menü adresi (https://...).
-   * QR kod yalnızca bu adres belli olduktan sonra üretilmelidir.
-   * Henüz yayın yok.
+   * QR kod bu adresi açar. Kök adres www adresine yönlenir.
    */
   publicSiteUrl: string | null;
 };
@@ -60,7 +59,7 @@ export const siteConfig: SiteConfig = {
   },
   openingHours: "Pazartesi–Cumartesi 10:00–18:00. Pazar: Kapalı.",
   openingHoursSchema: "Mo-Sa 10:00-18:00",
-  publicSiteUrl: null,
+  publicSiteUrl: "https://www.saklidoner.com",
 };
 
 export function formatAddress(

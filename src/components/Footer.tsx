@@ -122,15 +122,25 @@ export function Footer() {
 
         <div>
           <h2 className="text-sm font-semibold text-gold">Menü QR Kodu</h2>
-          <div className="mt-4 flex h-28 w-28 items-center justify-center rounded-lg bg-cream p-2 text-center text-[11px] leading-snug font-semibold text-ink">
-            {siteConfig.publicSiteUrl
-              ? "QR kodu yayın adresine bağlanır"
-              : "Yayın adresinden sonra burada görünür"}
+          <div className="mt-4 w-36 rounded-lg bg-cream p-2">
+            <Image
+              src="/images/menu-qr.png"
+              alt="SAK-LI DÖNER menü QR kodu"
+              width={1000}
+              height={1000}
+              unoptimized
+              className="h-auto w-full"
+            />
           </div>
           <p className="mt-2 max-w-40 text-xs leading-relaxed text-muted">
             Menüyü açmak için okutun
           </p>
         </div>
+      </div>
+      <div className="border-t border-line px-4 py-4 text-center text-xs leading-relaxed text-muted">
+        <p>© 2026 Saklı Döner</p>
+        <p>Tüm hakları saklıdır.</p>
+        <p className="mt-1">Designed &amp; Developed by Öznur SAK</p>
       </div>
     </footer>
   );
