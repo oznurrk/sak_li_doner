@@ -14,38 +14,48 @@ const metadataBase = siteConfig.publicSiteUrl
   ? new URL(siteConfig.publicSiteUrl)
   : undefined;
 
+const shareImage = {
+  url: "/images/logo2.png",
+  width: 768,
+  height: 768,
+  alt: "SAK-LI DÖNER tabela logosu",
+};
+
 export const metadata: Metadata = {
   ...(metadataBase ? { metadataBase } : {}),
-  title: "SAK-LI DÖNER | Dijital Menü",
+  title: siteConfig.metaTitle,
   description: siteConfig.metaDescription,
   applicationName: siteConfig.brandName,
   authors: [{ name: siteConfig.brandName }],
   creator: siteConfig.brandName,
-  robots: { index: true, follow: true },
+  publisher: siteConfig.brandName,
+  category: "restaurant",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  ...(metadataBase ? { alternates: { canonical: "/" } } : {}),
   openGraph: {
-    title: "SAK-LI DÖNER | Dijital Menü",
+    title: siteConfig.metaTitle,
     description: siteConfig.metaDescription,
     locale: "tr_TR",
     type: "website",
     siteName: siteConfig.brandName,
     ...(siteConfig.publicSiteUrl ? { url: siteConfig.publicSiteUrl } : {}),
-    ...(metadataBase
-      ? {
-          images: [
-            {
-              url: "/images/logo2.png",
-              width: 768,
-              height: 768,
-              alt: "SAK-LI DÖNER tabela logosu",
-            },
-          ],
-        }
-      : {}),
+    ...(metadataBase ? { images: [shareImage] } : {}),
   },
   twitter: {
     card: "summary",
-    title: "SAK-LI DÖNER | Dijital Menü",
+    title: siteConfig.metaTitle,
     description: siteConfig.metaDescription,
+    ...(metadataBase ? { images: [shareImage.url] } : {}),
   },
 };
 
@@ -58,13 +68,17 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: siteConfig.brandName,
-    servesCuisine: "Tavuk döner",
+    servesCuisine: siteConfig.businessType,
     telephone: toInternationalDisplay(siteConfig.phone),
     sameAs: [siteConfig.instagramUrl],
+    inLanguage: "tr-TR",
   };
 
   if (siteConfig.publicSiteUrl) {
+    jsonLd["@id"] = siteConfig.publicSiteUrl;
     jsonLd.url = siteConfig.publicSiteUrl;
+    jsonLd.image = `${siteConfig.publicSiteUrl}/images/logo2.png`;
+    jsonLd.hasMenu = siteConfig.publicSiteUrl;
   }
 
   if (siteConfig.address) {
@@ -79,6 +93,19 @@ export default function RootLayout({
 
   if (siteConfig.openingHoursSchema) {
     jsonLd.openingHours = siteConfig.openingHoursSchema;
+    jsonLd.openingHoursSpecification = {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "10:00",
+      closes: "18:00",
+    };
   }
 
   return (

@@ -10,6 +10,7 @@ export type SiteConfig = {
   brandName: string;
   slogan: string;
   businessType: string;
+  metaTitle: string;
   metaDescription: string;
   instagramUrl: string;
   instagramHandle: string;
@@ -43,6 +44,7 @@ export const siteConfig: SiteConfig = {
   brandName: "SAK-LI DÖNER",
   slogan: "",
   businessType: "Tavuk döner",
+  metaTitle: "SAK-LI DÖNER | Tavuk Döner Menüsü, Ferizli",
   metaDescription:
     "Saklı Döner tavuk döner menüsü, Ferizli, Sakarya. Ürünleri inceleyin; siparişinizi telefon veya WhatsApp üzerinden verin.",
   instagramUrl: "https://www.instagram.com/sak_li_doner/",
