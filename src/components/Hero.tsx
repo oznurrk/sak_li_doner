@@ -25,7 +25,7 @@ export function Hero() {
             Lezzeti Tadında Saklı
           </h1>
           <p className="mt-3 text-lg leading-relaxed text-cream-soft">
-            {siteConfig.slogan}. Tavuk döner menümüzü inceleyin. Siparişinizi
+            Tavuk döner menümüzü inceleyin. Siparişinizi
             telefonla veya WhatsApp üzerinden iletebilirsiniz.
           </p>
         </div>

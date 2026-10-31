@@ -42,7 +42,7 @@ export type SiteConfig = {
 
 export const siteConfig: SiteConfig = {
   brandName: "SAK-LI DÖNER",
-  slogan: "Lezzeti Tadında Saklı",
+  slogan: "",
   businessType: "Tavuk döner",
   metaDescription:
     "Saklı Döner tavuk döner menüsü, Ferizli, Sakarya. Ürünleri inceleyin; siparişinizi telefon veya WhatsApp üzerinden verin.",

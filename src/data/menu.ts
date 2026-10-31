@@ -3,8 +3,6 @@ import type { MenuCategory, MenuItem } from "@/types/menu";
 /**
  * Menü verisi. Fiyatı onaylı ürünlerde needsConfirmation false kalır.
  * needsConfirmation true ise veya price null ise sitede sayı gösterilmez.
- *
- * Sarıyer Kola fiyatı verilmedi.
  */
 
 export const menuCategories: MenuCategory[] = [
@@ -245,12 +243,12 @@ export const menuItems: MenuItem[] = [
     id: "sariyer-kola",
     name: "Sarıyer Kola",
     category: "icecekler",
-    price: null,
+    price: 70,
     description: null,
     image: "/images/menu/sariyer-kola.jpg",
     imageIsSample: false,
     available: true,
-    needsConfirmation: true,
+    needsConfirmation: false,
     badge: null,
     sortOrder: 10,
   },
