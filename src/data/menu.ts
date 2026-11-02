@@ -62,7 +62,8 @@ export const menuItems: MenuItem[] = [
     name: "Dürüm Döner",
     category: "durum-doner",
     price: 120,
-    description: null,
+    description:
+      "İçerik: Patates kızartması, Salatalık Turşusu, Soğan, Marul, Domates",
     image: "/images/menu/durum-doner-v2.jpg",
     imageIsSample: false,
     available: true,
@@ -75,7 +76,8 @@ export const menuItems: MenuItem[] = [
     name: "Sandviç Ekmek",
     category: "ekmek-arasi",
     price: 120,
-    description: null,
+    description:
+      "İçerik: Patates kızartması, Salatalık Turşusu, Soğan, Marul, Domates",
     image: "/images/menu/sandvic-ekmek-v2.jpg",
     imageIsSample: false,
     available: true,
@@ -88,7 +90,8 @@ export const menuItems: MenuItem[] = [
     name: "Tombik Ekmek",
     category: "ekmek-arasi",
     price: 120,
-    description: null,
+    description:
+      "İçerik: Patates kızartması, Salatalık Turşusu, Soğan, Marul, Domates",
     image: "/images/menu/tombik-ekmek-v2.jpg",
     imageIsSample: false,
     available: true,
@@ -101,7 +104,8 @@ export const menuItems: MenuItem[] = [
     name: "Pilav Üstü",
     category: "pilav-ustu",
     price: 230,
-    description: null,
+    description:
+      "İçerik: Patates kızartması, Salatalık Turşusu, Soğan, Marul, Domates",
     image: "/images/menu/pilav-ustu-v2.jpg",
     imageIsSample: false,
     available: true,
@@ -114,7 +118,8 @@ export const menuItems: MenuItem[] = [
     name: "Sade Kesim",
     category: "porsiyon",
     price: 200,
-    description: null,
+    description:
+      "İçerik: Patates kızartması, Salatalık Turşusu, Soğan, Marul, Domates",
     image: "/images/menu/sade-kesim-v2.jpg",
     imageIsSample: false,
     available: true,
