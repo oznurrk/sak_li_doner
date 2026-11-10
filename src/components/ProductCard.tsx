@@ -76,6 +76,28 @@ export function ProductCard({ item, compact = false }: ProductCardProps) {
         >
           {item.priceLabel}
         </p>
+        {item.caloriesLabel ? (
+          <p
+            className={
+              compact
+                ? "text-[11px] leading-snug text-cream-soft"
+                : "text-xs leading-snug text-cream-soft"
+            }
+          >
+            {item.caloriesLabel}
+          </p>
+        ) : null}
+        <p
+          className={
+            compact
+              ? "text-[11px] leading-snug text-cream-soft/80"
+              : "text-xs leading-snug text-cream-soft/80"
+          }
+        >
+          {item.allergens.length > 0
+            ? `Alerjen: ${item.allergens.join(", ")}`
+            : "Alerjen bilgisi için sipariş öncesi sorunuz."}
+        </p>
       </div>
       <div
         className={

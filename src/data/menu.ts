@@ -3,6 +3,11 @@ import type { MenuCategory, MenuItem } from "@/types/menu";
 /**
  * Menü verisi. Fiyatı onaylı ürünlerde needsConfirmation false kalır.
  * needsConfirmation true ise veya price null ise sitede sayı gösterilmez.
+ *
+ * Kalori ve alerjen kaynakları:
+ * - Döner ürünleri: işletme porsiyon kartları (ekmekli / sade / pilav üstü)
+ * - Ambalajlı içecekler: üretici / market etiket değerleri (100 ml × hacim)
+ * - Alerjenler: etiket veya görünen içerik (ekmek, yoğurt, bulgur, süt)
  */
 
 export const menuCategories: MenuCategory[] = [
@@ -69,6 +74,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Gluten", "Süt"],
+    calories: { min: 450, max: 550 },
     sortOrder: 1,
   },
   {
@@ -83,6 +90,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Gluten", "Süt"],
+    calories: { min: 450, max: 550 },
     sortOrder: 2,
   },
   {
@@ -97,6 +106,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Gluten", "Süt"],
+    calories: { min: 450, max: 550 },
     sortOrder: 3,
   },
   {
@@ -111,6 +122,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Gluten", "Süt"],
+    calories: { min: 650, max: 750 },
     sortOrder: 4,
   },
   {
@@ -125,6 +138,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Süt"],
+    calories: { min: 260, max: 295 },
     sortOrder: 5,
   },
   {
@@ -138,11 +153,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    // Migros / Open Food Facts etiket: 28 kcal/100 ml → 92 kcal/330 ml
+    calories: { min: 92, max: 92 },
     sortOrder: 1,
   },
   {
     id: "fanta-330",
-    name: "Fanta 330 ml",
+    name: "Fanta Portakal 330 ml",
     category: "icecekler",
     price: 70,
     description: null,
@@ -151,11 +169,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    // Coca-Cola TR etiket: 30 kcal/100 ml → 99 kcal/330 ml
+    calories: { min: 99, max: 99 },
     sortOrder: 2,
   },
   {
     id: "su",
-    name: "Su",
+    name: "Buzdağı Su 0,5 L",
     category: "icecekler",
     price: 10,
     description: null,
@@ -164,11 +185,13 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    calories: { min: 0, max: 0 },
     sortOrder: 3,
   },
   {
     id: "link",
-    name: "Link",
+    name: "Link Çilek 200 ml",
     category: "icecekler",
     price: 20,
     description: null,
@@ -177,11 +200,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    // Özdilek / Migros etiket: 14 kcal/100 ml → 28 kcal/200 ml
+    calories: { min: 28, max: 28 },
     sortOrder: 4,
   },
   {
     id: "buyuk-ayran",
-    name: "Büyük Ayran",
+    name: "Özgüllü Ayran 300 ml",
     category: "icecekler",
     price: 30,
     description: null,
@@ -190,11 +216,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Süt"],
+    // Özgüllü tam yağlı: 31 kcal/100 ml → 93 kcal/300 ml
+    calories: { min: 93, max: 93 },
     sortOrder: 5,
   },
   {
     id: "kucuk-ayran",
-    name: "Küçük Ayran",
+    name: "Özgüllü Ayran 200 ml",
     category: "icecekler",
     price: 20,
     description: null,
@@ -203,11 +232,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Süt"],
+    // Özgüllü tam yağlı: 31 kcal/100 ml → 62 kcal/200 ml
+    calories: { min: 62, max: 62 },
     sortOrder: 6,
   },
   {
     id: "cam-ayran",
-    name: "Cam Ayran",
+    name: "Özgüllü Ayran 200 ml Şişe",
     category: "icecekler",
     price: 50,
     description: null,
@@ -216,11 +248,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Süt"],
+    // Özgüllü tam yağlı şişe: 31 kcal/100 ml → 62 kcal/200 ml
+    calories: { min: 62, max: 62 },
     sortOrder: 7,
   },
   {
     id: "cola-turka",
-    name: "Cola Turka",
+    name: "Cola Turka 200 ml",
     category: "icecekler",
     price: 40,
     description: null,
@@ -229,11 +264,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    // Migros / Özdilek etiket: 21 kcal/100 ml → 42 kcal/200 ml
+    calories: { min: 42, max: 42 },
     sortOrder: 8,
   },
   {
     id: "salgam",
-    name: "Şalgam",
+    name: "Doğanay Acılı Şalgam 300 ml",
     category: "icecekler",
     price: 40,
     description: null,
@@ -242,11 +280,14 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Gluten"],
+    // Doğanay etiket: 4 kcal/100 ml → 12 kcal/300 ml; bulgur → gluten
+    calories: { min: 12, max: 12 },
     sortOrder: 9,
   },
   {
     id: "sariyer-kola",
-    name: "Sarıyer Kola",
+    name: "Sarıyer Kola 330 ml",
     category: "icecekler",
     price: 70,
     description: null,
@@ -255,6 +296,9 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: [],
+    // Open Food Facts / etiket: 42 kcal/100 ml → 139 kcal/330 ml
+    calories: { min: 139, max: 139 },
     sortOrder: 10,
   },
   {
@@ -268,6 +312,8 @@ export const menuItems: MenuItem[] = [
     available: true,
     needsConfirmation: false,
     badge: null,
+    allergens: ["Süt"],
+    calories: { min: 280, max: 320 },
     sortOrder: 1,
   },
 ];

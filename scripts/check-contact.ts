@@ -64,10 +64,21 @@ if (siteConfig.address) {
 
 const groups = getPublicMenu(menuItems, menuCategories);
 const names = groups.flatMap((group) => group.items.map((item) => item.name));
-assert(names.includes("Link"), "Link menüde olmalı");
+assert(
+  names.some((name) => name.startsWith("Link")),
+  "Link menüde olmalı",
+);
 assert(!names.includes("Lavaş"), "Lavaş menüde olmamalı");
 assert(names.includes("Dürüm Döner"), "Dürüm Döner eksik");
 assert(!names.includes("Kemalpaşa"), "Kemalpaşa menüde olmamalı");
+assert(
+  names.includes("Pepsi 330 ml"),
+  "Pepsi 330 ml adı hatalı",
+);
+const pepsi = groups
+  .flatMap((group) => group.items)
+  .find((item) => item.id === "pepsi-330");
+assert(pepsi?.caloriesLabel === "92 kcal", "Pepsi kalorisi etiket değeri olmalı");
 const doner = groups.find((group) => group.id === "doner");
 assert(doner?.layout === "feature", "döner düzeni 3 sütun tipi olmalı");
 assert(groups.find((group) => group.id === "icecekler")?.layout === "compact", "içecek düzeni kompakt olmalı");
@@ -79,6 +90,26 @@ const durum = groups
   .flatMap((group) => group.items)
   .find((item) => item.name === "Dürüm Döner");
 assert(durum?.priceLabel === "120 TL", "Dürüm Döner fiyatı görünmüyor");
+assert(
+  durum?.allergens.includes("Gluten") === true &&
+    durum?.allergens.includes("Süt") === true,
+  "Dürüm Döner alerjen uyarısı eksik",
+);
+assert(durum?.caloriesLabel === "~450–550 kcal", "Dürüm Döner kalorisi hatalı");
+assert(
+  groups.every((group) =>
+    group.items.every((item) => Array.isArray(item.allergens)),
+  ),
+  "her üründe alerjen alanı olmalı",
+);
+const pilav = groups
+  .flatMap((group) => group.items)
+  .find((item) => item.name === "Pilav Üstü");
+assert(pilav?.caloriesLabel === "~650–750 kcal", "Pilav Üstü kalorisi hatalı");
+const sade = groups
+  .flatMap((group) => group.items)
+  .find((item) => item.name === "Sade Kesim");
+assert(sade?.caloriesLabel === "~260–295 kcal", "Sade Kesim kalorisi hatalı");
 
 console.log("iletişim ve fiyat kontrolleri geçti");
 console.log(url);

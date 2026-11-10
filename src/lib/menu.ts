@@ -6,6 +6,20 @@ import type {
   PublicMenuItem,
 } from "@/types/menu";
 
+function formatCaloriesLabel(
+  calories: MenuItem["calories"],
+): string | null {
+  if (!calories) {
+    return null;
+  }
+
+  if (calories.min === calories.max) {
+    return `${calories.min} kcal`;
+  }
+
+  return `~${calories.min}–${calories.max} kcal`;
+}
+
 function toPublicItem(item: MenuItem): PublicMenuItem {
   const price = getPriceLabel(item);
 
@@ -16,6 +30,8 @@ function toPublicItem(item: MenuItem): PublicMenuItem {
     image: item.image,
     imageIsSample: item.imageIsSample,
     badge: item.badge,
+    allergens: item.allergens,
+    caloriesLabel: formatCaloriesLabel(item.calories),
     priceLabel: price.label,
     priceConfirmed: price.confirmed,
   };

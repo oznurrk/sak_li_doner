@@ -15,6 +15,10 @@ export type MenuItem = {
   needsConfirmation: boolean;
   /** İsteğe bağlı kısa etiket. Doğrulanmış bir etiket yoksa null. */
   badge: string | null;
+  /** Bilinen majör alerjenler. Boş dizi ise kartta genel uyarı gösterilir. */
+  allergens: string[];
+  /** Ortalama kalori aralığı (kcal). Bilinmiyorsa null. */
+  calories: { min: number; max: number } | null;
   sortOrder: number;
 };
 
@@ -35,6 +39,8 @@ export type PublicMenuItem = {
   image: string | null;
   imageIsSample: boolean;
   badge: string | null;
+  allergens: string[];
+  caloriesLabel: string | null;
   priceLabel: string;
   priceConfirmed: boolean;
 };
